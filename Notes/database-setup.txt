@@ -1,0 +1,42 @@
+run command:--------------- sakshikalyanjadhav@Sakshis-MacBook-Air ~ % docker run -d --name sql_cc -e POSTGRES_PASSWORD=postgres -p 5432:5432 postgres:18
+
+docker: Cannot connect to the Docker daemon at unix:///Users/sakshikalyanjadhav/.docker/run/docker.sock. Is the docker daemon running?
+
+Run 'docker run --help' for more information
+
+------------------------------------------------ [error comes becoz Docker desktop was close] ------------------------------------------------------------
+
+run command:--- sakshikalyanjadhav@Sakshis-MacBook-Air ~ % docker run -d --name sql_cc -e POSTGRES_PASSWORD=postgres -p 5432:5432 postgres:18
+
+Unable to find image 'postgres:18' locally
+18: Pulling from library/postgres
+d1a3067f9c98: Pull complete 
+de23c21b57f2: Pull complete 
+3c3225ba1025: Pull complete 
+6ff057780a44: Pull complete 
+acba8632a2fc: Pull complete 
+2b70e040f7d1: Pull complete 
+7672a6ce4d85: Pull complete 
+8648fbfa17a8: Pull complete 
+3a714400795f: Pull complete 
+54ddeb74882a: Pull complete 
+22aa5aa83b7d: Pull complete 
+24b05182f7a5: Pull complete 
+97f720713f77: Pull complete 
+Digest: sha256:3a4264520e121176619f54ff867d12774bc81e95e7b84db58d63bccdb6144b81
+Status: Downloaded newer image for postgres:18
+44ecb448ab882cceef02f35cd395d39c48a3e24b25579831d16e9e094b3bd100
+
+run command:--------------- sakshikalyanjadhav@Sakshis-MacBook-Air ~ % docker ps
+
+CONTAINER ID   IMAGE         COMMAND                  CREATED          STATUS          PORTS                                         NAMES
+44ecb448ab88   postgres:18   "docker-entrypoint.s…"   31 seconds ago   Up 30 seconds   0.0.0.0:5432->5432/tcp, [::]:5432->5432/tcp   sql_cc
+
+run command:--------------- sakshikalyanjadhav@Sakshis-MacBook-Air ~ % docker exec -it sql_cc psql -U postgres
+
+psql (18.6 (Debian 18.6-1.pgdg13+2))
+Type "help" for help.
+
+postgres=# CREATE DATABASE chaicode_ecom_db;
+CREATE DATABASE
+postgres=# 
